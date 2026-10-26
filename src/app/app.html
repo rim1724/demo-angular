@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#parent-child">Angular lifecycle</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#mynavbar"
+      aria-controls="mynavbar"
+      aria-label="Chuyển đổi điều hướng"
+      aria-expanded="false"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mynavbar">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/lifecycle" routerLinkActive="active">
+            Lifecycle 
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/controlflow" routerLinkActive="active">
+            Control Flow
+          </a>
+        </li>
+                <li class="nav-item">
+          <a class="nav-link" routerLink="/reactiveform" routerLinkActive="active">
+            Reactive Form
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<router-outlet></router-outlet>

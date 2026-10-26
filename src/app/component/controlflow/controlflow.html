@@ -1,0 +1,50 @@
+<h2>If/else</h2>
+<label for="score">Nhập điểm (0–10):</label>
+<input #scoreInput id="score" type="number" min="0" max="10" step="0.1" placeholder="Nhập điểm" />
+<button type="button" (click)="confirmScore(scoreInput.value)">Xác nhận</button>
+
+@if (scoreError) {
+  <p>{{ scoreError }}</p>
+}
+
+@if (score !== null) {
+  @if (score >= 8) {
+    <p>Điểm {{ score }} — Xếp loại: Giỏi</p>
+  } @else {
+    <p>Điểm {{ score }} — Xếp loại: Khá</p>
+  }
+}
+
+<hr>
+
+<h2>For</h2>
+<ul>
+  @for (student of students; track student.name) {
+    <li>{{ student.name }}: {{ student.score }} điểm</li>
+  }
+</ul>
+
+<hr>
+
+<h2>Switch</h2>
+<label for="rank">Chọn xếp loại:</label>
+<select #rankSelect id="rank" [value]="rank" (change)="rank = rankSelect.value">
+  <option value="gioi">Giỏi</option>
+  <option value="kha">Khá</option>
+  <option value="trung-binh">Trung bình</option>
+</select>
+
+@switch (rank) {
+  @case ('gioi') {
+    <p>Học sinh giỏi</p>
+  }
+  @case ('kha') {
+    <p>Học sinh khá</p>
+  }
+  @case ('trung-binh') {
+    <p>Học sinh trung bình</p>
+  }
+  @default {
+    <p>Chưa xác định</p>
+  }
+}
