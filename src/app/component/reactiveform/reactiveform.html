@@ -1,1 +1,35 @@
-<p>reactiveform works!</p>
+<h2>Form</h2>
+
+<form [formGroup]="userForm" (ngSubmit)="submitForm()">
+  <label for="name">Họ tên:</label>
+  <input
+    id="name"
+    type="text"
+    formControlName="name"
+    placeholder="Nhập họ tên"
+    required
+    minlength="2"
+    maxlength="10"
+  />
+
+  @if (
+    userForm.controls.name.invalid &&
+    (userForm.controls.name.touched || userForm.controls.name.dirty)
+  ) {
+    @if (userForm.controls.name.hasError('required')) {
+      <p>Vui lòng nhập họ tên.</p>
+    }
+    @if (userForm.controls.name.hasError('minlength')) {
+      <p>Họ tên phải có ít nhất 2 ký tự.</p>
+    }
+    @if (userForm.controls.name.hasError('maxlength')) {
+      <p>Họ tên không được vượt quá 10 ký tự.</p>
+    }
+  }
+
+  <button type="submit">Gửi</button>
+</form>
+
+@if (submittedName !== '') {
+  <p>Họ tên của bạn: {{ submittedName }}</p>
+}
